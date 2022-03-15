@@ -5,10 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>MVP</title>
+    <title>Exercise Tracker</title>
 </head>
 <body>
-    <h1> MVP </h1>
+    <div class = "menu-container">
+    <div class = "menu">
+        History
+    </div>
+    </div>
+    <div class="form-container">
+
+    <!-- form to create new user -->
+        <form class= "signup" action="/api/exercise/new-user" method="POST">
+            <h2>Create a New User</h2>
+            <input id="uname" type="text" name="username" placeholder="username" />
+            <input type="submit" value="Submit" />
+        </form>
+
+    <!-- form to log exercise -->
+    <form class= "log" action="/users" method="POST">
+        <h2>Add a workout</h2>
+        <input id="uid" type="text" name="userId" placeholder="userId*" />
+        <input id="desc" type="text" name="description" placeholder="description*"/>
+        <input id="dur" type="text" name="duration" placeholder="duration* (mins.)"/>
+        <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)"/>
+        <input type="submit" value="Submit" />
+      </form>
+
+      <h1> Get workout history</h1>
+      <form>
+        <input id="his" type="text" name="history" placeholder="user-id"/>
+        <button id="btn" type= "submit" >Workout History</button>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src = "app.js"></script>
 </body>
 </html>

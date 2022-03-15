@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS workout_log;
 
 CREATE TABLE appUsers(
     id SERIAL PRIMARY KEY,
-    username TEXT
+    username TEXT UNIQUE
 );
 
 CREATE TABLE workout_log (
