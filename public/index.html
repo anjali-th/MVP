@@ -5,61 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Exercise Tracker</title>
 </head>
 <body>
+    <header>
     <div class = "menu-container">
+    <h1>EXERCISE TRACKER</h1>
     <div class = "menu">
-        <button><a  href="/">Home</a></button>
+        <button><a  href="/" >Home</a></button>
         <button id="menuHistory">History</button>
     </div>
     </div>
-
+    </header>
+    
+    <main>
     <div class="form-container">
 
     <!-- form to create new user -->
         <div class = "account">
             <fieldset>
-
-            <form class= "signup" action="/api/exercise/new-user" method="POST">
-                <h2>Create a New User</h2>
-                <input required id="uname" type="text" name="username" placeholder="username" />
-                <br>
-                <input type="submit" value="Submit" />
-                <h4>OR</h4>
-                <button id="login">Log your workout</button>
-            </form>
-        </fieldset>
-            
+                <form class= "signup" action="/api/exercise/new-user" method="POST">
+                    <h2>Create an Account</h2>
+                    <input required id="uname" type="text" name="username" placeholder="username" />
+                    <br>
+                    <input type="submit" value="Submit" />
+                    <h4>OR</h4>
+                    <button id="login">Log your workout</button>
+                </form>
+            </fieldset>
         </div>
-
+                
     <!-- form to log exercise -->
     <div class = "add">
-        <h2>Add a workout</h2>
+        <h2>Add a Workout</h2>
         <fieldset>
         <form class= "log" action="/users" method="POST">
-            
-            <div>
                 <label>User-Id:</label>
                 <span><input required id="uid" type="text" name="userId" placeholder="userId*" /></span><br>
-            
-           
                 <label>Workout Description:</label>
                 <span><input required id="desc" type="text" name="description" placeholder="description*"/></span><br>
-
-        
-          
-
                 <label>Duration:</label>
                 <span><input required id="dur" type="text" name="duration" placeholder="(mins.)"/></span><br>
-           
-           
-
-                <label>Date:</label>
+                 <label>Date:</label>
                 <span><input required id="dat" type="text" name="date" placeholder="(yyyy-mm-dd)"/></span><br>
-           
-            <input type="submit" value="Submit" />
-        </div>
+                <input type="submit" value="Submit" />
         </form>
         </fieldset>
     </div>
@@ -68,13 +60,21 @@
         <fieldset>   
         <h1> Get workout history</h1>
         <form>
-            <input required id="his" type="text" name="history" placeholder="user-id"/>
-            <button id="btn" type= "submit" >Workout History</button>
+            <input id="his" type="text" name="history" placeholder="user-id" required/>
+            <button id="btn" type= "submit" >History</button>
         </form>
     </fieldset>
     </div>
 
     </div>
+    </main>
+    <footer>
+        <div style="background-color: black;">
+            <div class="container text-center">
+              <p class="text-muted mb-0 py-2" style="color: white;">© 2022 Anjali Thing.</p>
+            </div>
+          </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src = "app.js"></script>
 </body>

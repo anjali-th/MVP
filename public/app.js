@@ -1,4 +1,5 @@
 let log; 
+let logContainer;
 
 const divContainer = $('.form-container')
 const menuContainer = $('.menu-container')
@@ -12,10 +13,6 @@ const btn = $("#btn");
 // log your workout button
 const login = $('#login');
 
-login.on('click',(e)=>{
-    account.hide();
-    add.show();
-});
 
 $('#menuHistory').on('click',()=>{
     history.show();
@@ -35,22 +32,45 @@ const getInfo = function(){
     });
 }
 
+login.on('click',(e)=>{
+    account.hide();
+    add.show();
+});
+
 function createLog(){
 
-    divContainer.hide();
+    const info = log;
+    console.log(info);
+    history.hide();
+    
+    logContainer = $('<div></div>');
+    logContainer.addClass('logbox');
+    logContainer.appendTo(divContainer);
 
-    const logContainer = $('<div></div>');
-    logContainer.addClass('log');
-    logContainer.insertAfter(menuContainer);
-    console.log(log)
+    const newlogdiv = $('<div></div>')
+    newlogdiv.addClass('loghead')
+    newlogdiv.html(`
+    <span>DATE</span>
+    <span>DESCRIPTION</span>
+    <span>DURATION</span>`);
+    newlogdiv.appendTo(logContainer);
 
-    for ( var index = 0; index<log.length; index++){
-        if (log[index].appusers_id == historyInput.val()){
-            $(`<div class = 'log-items'>${log[index].date}</div>`).appendTo(logContainer);
-            $(`<div class = 'log-items'>${log[index].workout_name}</div>`).appendTo(logContainer);
-            $(`<div class = 'log-items'>${log[index].duration}</div>`).appendTo(logContainer);
-            $('<br>')
-        };
+    const loglist = $('<div></div>');
+    loglist.addClass('loglist');
+    loglist.insertAfter(newlogdiv);
+
+    const ul = $('<ul style="list-style-type:none;"></ul>');
+    ul.appendTo(loglist);
+    
+    for ( var index = 0; index<info.length; index++){
+
+        if (info[index].appusers_id == historyInput.val()){
+            $(`<li>
+            <span>${log[index].date}</span>
+            <span>${log[index].workout_name}</span>
+            <span>${log[index].duration}mins.</span>
+            </li>`).appendTo(ul);
+        }
     };
 };
     
