@@ -5,12 +5,58 @@
     display: flex;
     justify-content: center;
 }
-
 .menu{
     /* border: 1px solid #fff; */
-    width: 500px;
+    width: 900px;
     display: flex;
     justify-content: flex-end;
+    padding: 1em;
+}
+
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+fieldset{
+    padding: 1em 2em;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    min-width: 200x;
+}
+
+.account{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid grey;
+    padding: 20px 30px;
+    margin-top: 10em;
+    width: 250px;
+    height: 300px;
+}
+
+.add{
+    border: 2px solid grey;
+    padding: 30px 30px;
+    margin: 3em 3em;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: auto;
+    height: 500px;
+
+}
+
+.history{
+    border: 2px solid grey;
+    padding: 30px 30px;
+    margin: 3em 3em;
+    display: none;
+    align-items: center;
 }
 
 .log{
@@ -25,4 +71,20 @@
     justify-content: center;
     flex-wrap: wrap;
     flex: 1;
+}
+
+input{
+    padding: 4px 4px;
+    margin: 7px 7px;
+    align-self: center;
+}
+ 
+label{
+    width: 100px;
+    display: inline-block;
+}
+
+button{
+    align-self: center;
+    
 }

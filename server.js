@@ -36,7 +36,6 @@ app.post('/api/exercise/new-user', (req, res)=>{
             res.sendStatus(500);
         }
         res.status(201).send('Your User-id is:' + id);
-        console.log(id);
     });
 });
 
@@ -49,6 +48,7 @@ app.post('/users', (req, res)=>{
             res.sendStatus(500);
         }
         res.status(201).send(result.rows[0]);
+        console.log(result.rows[0])
     });
     
 })

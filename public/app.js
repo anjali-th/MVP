@@ -2,8 +2,26 @@ let log;
 
 const divContainer = $('.form-container')
 const menuContainer = $('.menu-container')
+const account = $('.account')
+const add = $('.add')
+const history = $('.history');
 const historyInput = $("#his");
 const btn = $("#btn");
+
+
+// log your workout button
+const login = $('#login');
+
+login.on('click',(e)=>{
+    account.hide();
+    add.show();
+});
+
+$('#menuHistory').on('click',()=>{
+    history.show();
+    add.hide();
+    account.hide();
+})
 
 btn.on('click', (e)=>{
     e.preventDefault();
