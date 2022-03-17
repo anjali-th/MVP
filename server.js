@@ -14,12 +14,13 @@ const { Pool } = require ('pg');
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: process.env.NODE_ENV ==='production'? {
+    ssl: {
         rejectUnauthorized: false,
-    }: false
+    },
+
 });
 
-const PORT = 8000 || process.env.PORT;
+const PORT =process.env.PORT;
 
 // create new user
 app.use(express.static('public'));
@@ -30,7 +31,6 @@ app.post('/new-user', (req, res)=>{
     // edge cases: blank input field
 
     pool.query('INSERT INTO appUsers (username) VALUES ($1) RETURNING *', [username] , (err, result)=>{
-        // const id = result.rows[0].id;
         if (err){
             res.sendStatus(500);
         }

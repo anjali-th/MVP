@@ -1,1 +1,1 @@
-SELECT * FROM appUsers;
+SELECT * FROM workout_log;
