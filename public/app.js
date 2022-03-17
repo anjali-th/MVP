@@ -10,32 +10,87 @@ const historyInput = $("#his");
 const btn = $("#btn");
 
 
+// POST request on button click, send userid that was generated to user
+
+const signUp = $('.signup');
+
+signUp.on('submit',(e)=>{
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+    const newUser = {
+        username : data.get("username"),
+    }
+
+    $.post({
+        url: "/new-user",
+        data: JSON.stringify(newUser),
+        contentType: "application/json",
+        success: (res)=>{
+            $(`<p id="paraId">Your User-id is ${res.id}</p>`).insertAfter(account);
+            
+        }, 
+    });
+})
+
+// post request to log
+
+$('.log').on('submit',(e)=>{
+    e.preventDefault();
+    
+    const data = new FormData(e.target);
+    const newLog = {
+        date: data.get("date"),
+        workoutname: data.get("description"),
+        duration: data.get("duration"),
+        appusersid: data.get("userId"),
+    }
+
+    $.post({
+        url: "/log",
+        data: JSON.stringify(newLog),
+        contentType: "application/json",
+        success: (res)=>{
+            $(`<p id="paraLog">Your Workout has been logged!</p>`).insertAfter(add);
+        }, 
+    });
+})
+
+
 // log your workout button
 const login = $('#login');
 
+// "log your workout button " on homepage
+login.on('click',(e)=>{
+    account.hide();
+    add.show();
+    $('#paraId').hide();
+});
 
+// history on menu bar
 $('#menuHistory').on('click',()=>{
     history.show();
     add.hide();
     account.hide();
-})
+    $('#paraLog').hide();
+}) 
 
+
+
+// button on history div
 btn.on('click', (e)=>{
     e.preventDefault();
     getInfo();
-});
+});    
 
 const getInfo = function(){
     $.get('/history', (data)=>{
         log = data;
         createLog(log);
-    });
-}
+    });    
+}    
 
-login.on('click',(e)=>{
-    account.hide();
-    add.show();
-});
+// create workout history log 
 
 function createLog(){
 
@@ -64,10 +119,10 @@ function createLog(){
     
     for ( var index = 0; index<info.length; index++){
 
-        if (info[index].appusers_id == historyInput.val()){
+        if (info[index].appusersid == historyInput.val()){
             $(`<li>
             <span>${log[index].date}</span>
-            <span>${log[index].workout_name}</span>
+            <span>${log[index].workoutname}</span>
             <span>${log[index].duration}mins.</span>
             </li>`).appendTo(ul);
         }

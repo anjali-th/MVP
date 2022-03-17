@@ -43,7 +43,7 @@ fieldset{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 13em;
+    margin-top: 10em;
 }
 
 .add{
@@ -138,4 +138,13 @@ footer{
     bottom: 0;
     width: 100%;
     height: 2.5rem; 
+}
+
+p{
+    color:#242c45;
+    font-weight: 300;
+}
+
+footer p{
+    color: white;
 }

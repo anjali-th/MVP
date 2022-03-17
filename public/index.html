@@ -27,14 +27,14 @@
     <!-- form to create new user -->
         <div class = "account">
             <fieldset>
-                <form class= "signup" action="/api/exercise/new-user" method="POST">
+                <form class= "signup">
                     <h2>Create an Account</h2>
                     <input required id="uname" type="text" name="username" placeholder="username" />
                     <br>
-                    <input type="submit" value="Submit" />
+                    <input id= "usernameSub" type="submit" value="Submit" />
                     <h4>OR</h4>
-                    <button id="login">Log your workout</button>
                 </form>
+                <button id="login">Log your workout</button>
             </fieldset>
         </div>
                 
@@ -42,7 +42,7 @@
     <div class = "add">
         <h2>Add a Workout</h2>
         <fieldset>
-        <form class= "log" action="/users" method="POST">
+        <form class= "log" >
                 <label>User-Id:</label>
                 <span><input required id="uid" type="text" name="userId" placeholder="userId*" /></span><br>
                 <label>Workout Description:</label>
@@ -51,7 +51,7 @@
                 <span><input required id="dur" type="text" name="duration" placeholder="(mins.)"/></span><br>
                  <label>Date:</label>
                 <span><input required id="dat" type="text" name="date" placeholder="(yyyy-mm-dd)"/></span><br>
-                <input type="submit" value="Submit" />
+                <input id="addBtn" type="submit" value="Submit" />
         </form>
         </fieldset>
     </div>
@@ -70,12 +70,13 @@
     </main>
     <footer>
         <div style="background-color: black;">
-            <div class="container text-center">
-              <p class="text-muted mb-0 py-2" style="color: white;">© 2022 Anjali Thing.</p>
-            </div>
-          </div>
+            <p>
+                <span>Contact us</span>
+            </p>
+            <p class="copyright">Exercise Tracker © 2022</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src = "app.js"></script>
 </body>
 </html>
+          
