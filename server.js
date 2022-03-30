@@ -15,14 +15,22 @@ const { Pool } = require ('pg');
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: {
+    ssl: process.env.NODE_ENV === "production" ? {
         rejectUnauthorized: false,
-    },
+    } : false
 
 });
 
-// const PORT = 8000 || process.env.PORT;
-const PORT = process.env.PORT;
+// const pool = new Pool({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: {
+//         rejectUnauthorized: false,
+//     },
+
+// });
+
+const PORT = 3000 || process.env.PORT;
+// const PORT = process.env.PORT;
 
 // create new user
 app.use(express.static('public'));
