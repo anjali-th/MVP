@@ -41,9 +41,9 @@ $('.log').on('submit',(e)=>{
     const data = new FormData(e.target);
     const newLog = {
         date: data.get("date"),
-        workoutname: data.get("description"),
+        workoutname: data.get("workoutname"),
         duration: data.get("duration"),
-        appusersid: data.get("userId"),
+        appusersid: data.get("appusersid"),
     }
 
     $.post({
@@ -95,7 +95,7 @@ const getInfo = function(){
 function createLog(){
 
     const info = log;
-    console.log(info);
+
     history.hide();
     
     logContainer = $('<div></div>');
