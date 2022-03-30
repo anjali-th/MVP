@@ -21,7 +21,8 @@ const pool = new Pool({
 
 });
 
-const PORT = 8000 || process.env.PORT;
+// const PORT = 8000 || process.env.PORT;
+const PORT = process.env.PORT;
 
 // create new user
 app.use(express.static('public'));
